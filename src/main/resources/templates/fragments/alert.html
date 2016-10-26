@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body th:fragment="alert">
+<div class="alert alert-success" th:if="${#vars['success_message']}">
+    <span th:remove="tag" th:utext="${#vars['success_message']}"></span>
+</div>
+<div class="alert alert-danger" th:if="${#vars['error_message']}">
+    <span th:remove="tag" th:utext="${#vars['error_message']}"></span>
+</div>
+<div th:if="${param.error}" class="alert alert-danger">
+    Invalid email/password.
+</div>
+<div th:if="${param.logout}" class="alert alert-success">
+    You have been logged out.
+</div>
+</body>
+</html>

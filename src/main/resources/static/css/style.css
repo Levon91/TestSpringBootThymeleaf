@@ -1,0 +1,16 @@
+.app-name {
+    color: white !important;
+}
+
+.navbar-inverse {
+    border-radius: 0 !important;
+}
+
+.box-centered {
+    float: none;
+    margin: 20px auto;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white !important;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login page</title>
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<section class="content">
+        <div class="col-md-4 box-centered">
+            <div class="box box-warning">
+                <div th:replace="fragments/alert :: alert">&nbsp;</div>
+                <div class="box-body">
+                    <form th:action="@{/signIn}" method="post">
+                        <div class="form-group">
+                            <label class="control-label" for="email">Email address</label>
+                            <input type="text" id="email" class="form-control" name="email"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember-me" id="remember-me"/>
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-xs-5">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat" name="login-button">
+                                    Login
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <hr/>
+                    <div class="form-group">
+                        <a th:href="@{/signUp}">Yet not account ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<div th:replace="fragments/footer :: footer">&nbsp;</div>
+<script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</body>
+</html>

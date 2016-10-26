@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - jmessenger@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="jmessenger">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="user"/>
+    <column id="3" parent="2" name="id">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="4" parent="2" name="country">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="5" parent="2" name="dob">
+      <data-type>DATETIME(19)|93</data-type>
+    </column>
+    <column id="6" parent="2" name="email">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="7" parent="2" name="full_name">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="8" parent="2" name="last_login">
+      <data-type>DATETIME(19)|93</data-type>
+    </column>
+    <column id="9" parent="2" name="password">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <index id="10" parent="2" name="UK_ob8kqyqqgmefl0aco34akdtpe">
+      <columns>email</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="11" parent="2" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>

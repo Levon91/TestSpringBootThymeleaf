@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Register page</title>
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<section class="content">
+        <div class="col-md-4 box-centered">
+            <div class="box box-warning">
+                <div th:replace="fragments/alert :: alert">&nbsp;</div>
+                <div class="box-body">
+                    <form method="post" th:action="@{/signUp}" th:object="${registerForm}">
+                        <div class="form-group" th:classappend="${#fields.hasErrors('fullName')}? 'has-error'">
+                            <label class="control-label" for="fullName">Full Name</label>
+                            <input type="text" id="fullName" class="form-control" th:field="*{fullName}"/>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('fullName')}"
+                                 th:errors="*{fullName}"></div>
+                        </div>
+
+                        <div class="form-group" th:classappend="${#fields.hasErrors('country')}? 'has-error'">
+                            <label class="control-label" for="country">Country</label>
+                            <select class="form-control" id="country" th:field="*{country}">
+                                <option th:each="language : ${T(com.jmessenger.enumeration.Language).values()}"
+                                        th:value="${language}"
+                                        th:text="${language}">
+                                </option>
+                            </select>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('country')}"
+                                 th:errors="*{country}"></div>
+                        </div>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+                            <label class="control-label" for="email">Email address</label>
+                            <input type="text" id="email" class="form-control" th:field="*{email}"/>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                        </div>
+
+                        <div class="form-group" th:classappend="${#fields.hasErrors('dob')}? 'has-error'">
+                            <label class="control-label" for="dob">Date of birth</label>
+                            <input type="date"  dateformat="d M y" id="dob" class="form-control" th:field="*{dob}"/>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></div>
+                        </div>
+
+                        <div class="form-group" th:classappend="${#fields.hasErrors('password')}? 'has-error'">
+                            <label class="control-label" for="password">Password</label>
+                            <input type="password" id="password" class="form-control" th:field="*{password}"/>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                            </div>
+                        </div>
+
+                        <div class="form-group" th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error'">
+                            <label class="control-label" for="confirmPassword">Confirm password</label>
+                            <input type="password" id="confirmPassword" class="form-control" th:field="*{confirmPassword}"/>
+
+                            <div class="help-block" th:if="${#fields.hasErrors('confirmPassword')}"
+                                 th:errors="*{confirmPassword}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary form-control">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+                    <hr/>
+                    <div class="form-group">
+                        <a th:href="@{/signIn}">Already have an account ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<div th:replace="fragments/footer :: footer">&nbsp;</div>
+<script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</body>
+</html>
