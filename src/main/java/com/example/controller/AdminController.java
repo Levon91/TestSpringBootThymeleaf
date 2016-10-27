@@ -33,8 +33,8 @@ public class AdminController {
         return "admin/home";
     }
 
-    @RequestMapping(value = "/delete/{0}", method = RequestMethod.GET)
-    public String delete(@PathParam("id") Long id) throws DatabaseException {
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String delete(@PathVariable Long id) throws DatabaseException {
         userManager.delete(id);
         return "admin/home";
     }

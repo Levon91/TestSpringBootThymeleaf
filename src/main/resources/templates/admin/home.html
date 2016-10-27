@@ -30,7 +30,7 @@
             <td th:text="${item.getLastLogin()}"></td>
             <td>
                 <a href="#" data-th-href="@{/strategy/edit(id=${item.getId()})}">Edit</a>
-                <a href="#" data-th-href="@{/delete/${item.getId()}}">Delete</a>
+                <a href="#" data-th-href="@{/delete/}+${item.id()}">Delete</a>
             </td>
         </tr>
         </tbody>
