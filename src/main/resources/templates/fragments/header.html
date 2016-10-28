@@ -12,10 +12,10 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand app-name" th:href="@{/home}" sec:authorize="isAuthenticated()">
-                JMessenger
+                TaskManager
             </a>
             <a class="navbar-brand app-name" th:href="@{/}" sec:authorize="isAnonymous()">
-                JMessenger
+                TaskManager
             </a>
         </div>
         <div class="navbar-collapse collapse" sec:authorize="isAuthenticated()">

@@ -24,7 +24,7 @@
                         <div class="form-group" th:classappend="${#fields.hasErrors('country')}? 'has-error'">
                             <label class="control-label" for="country">Country</label>
                             <select class="form-control" id="country" th:field="*{country}">
-                                <option th:each="language : ${T(com.jmessenger.enumeration.Language).values()}"
+                                <option th:each="language : ${T(com.example.enumeration.Language).values()}"
                                         th:value="${language}"
                                         th:text="${language}">
                                 </option>

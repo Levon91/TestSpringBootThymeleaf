@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="jmessenger" />
+        <module name="TaskManager" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="jmessenger" target="1.8" />
+      <module name="TaskManager" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

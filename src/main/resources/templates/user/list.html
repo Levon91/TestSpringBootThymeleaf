@@ -15,8 +15,9 @@
         <table class="table table-bordered">
             <thead>
             <th>Name</th>
+            <th>Email</th>
             <th>Last Login</th>
-            <th>Send message</th>
+            <th>Action</th>
             </thead>
             <tbody>
             <tr th:if="${#lists.isEmpty(list)}">
@@ -24,26 +25,26 @@
             </tr>
             <tr th:if="${not #lists.isEmpty(list)}" th:each="item : *{list}">
                 <td th:text="${item.getFullName()}"></td>
+                <td th:text="${item.getEmail()}"></td>
                 <td th:text="${item.getLastLogin()}"></td>
                 <td>
-                    <label>
-                        <input type="checkbox" name="channels" th:value="${item.getChannel()}"/>
-                    </label>
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                    <button type="submit" class="btn btn-primary">Remove</button>
                 </td>
             </tr>
             </tbody>
         </table>
-        <div th:if="${not #lists.isEmpty(list)}">
-            <div class="form-group">
-                <label for="message"></label>
-                <textarea id="message" class="form-control" name="message"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary pull-right">
-                    Send
-                </button>
-            </div>
-        </div>
+        <!--<div th:if="${not #lists.isEmpty(list)}">-->
+            <!--<div class="form-group">-->
+                <!--<label for="message"></label>-->
+                <!--<textarea id="message" class="form-control" name="message"></textarea>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<button type="submit" class="btn btn-primary pull-right">-->
+                    <!--Send-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
     </form>
 </div>
 <div th:replace="fragments/footer :: footer">&nbsp;</div>

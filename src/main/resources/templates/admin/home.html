@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Admin Home page</title>
+    <link th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="home-page">
+<div th:replace="fragments/header :: header">&nbsp;</div>
+<div class="container">
+    <h1>Users</h1>
+    <table class="table table-bordered">
+        <thead>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Last Login</th>
+        </thead>
+        <tbody>
+        <tr th:if="${#lists.isEmpty(users)}">
+            <td colspan="2">Empty list</td>
+        </tr>
+        <tr th:if="${not #lists.isEmpty(users)}" th:each="item : *{users}">
+            <td th:text="${item.getFullName()}"></td>
+            <td th:text="${item.getEmail()}"></td>
+            <td th:text="${item.getCountry()}"></td>
+            <td th:text="${item.getLastLogin()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer :: footer">&nbsp;</div>
+<script src="https://cdn.pubnub.com/pubnub-3.14.5.min.js"></script>
+<script th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+<script th:src="@{/js/pubnubService.js}"></script>
+</body>
+</html>
