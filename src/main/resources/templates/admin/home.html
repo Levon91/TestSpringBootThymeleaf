@@ -11,6 +11,7 @@
     <h1>Users</h1>
     <table class="table table-bordered">
         <thead>
+        <th>id</th>
         <th>Full Name</th>
         <th>Email</th>
         <th>Country</th>
@@ -22,13 +23,14 @@
             <td colspan="2">Empty list</td>
         </tr>
         <tr th:if="${not #lists.isEmpty(users)}" th:each="item : *{users}">
+            <td th:text="${item.getId()}"></td>
             <td th:text="${item.getFullName()}"></td>
             <td th:text="${item.getEmail()}"></td>
             <td th:text="${item.getCountry()}"></td>
             <td th:text="${item.getLastLogin()}"></td>
             <td>
-                <a href="#" data-th-href="@{/strategy/edit(id=${1})}">Edit</a>
-                <a href="#" data-th-href="@{/strategy/edit(id=${2})}">Delete</a>
+                <a href="#" data-th-href="@{/strategy/edit(id=${item.getId()})}">Edit</a>
+                <a href="#" data-th-href="@{/delete/${item.getId()}}">Delete</a>
             </td>
         </tr>
         </tbody>
