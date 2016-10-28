@@ -1,5 +1,6 @@
 package com.example.data.form;
 
+import com.example.enumeration.Role;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -25,6 +26,8 @@ public class RegisterForm {
 
     @NotEmpty(message = "Confirm Password can not be blank.")
     private String confirmPassword;
+
+    private Role role;
 
     public String getFullName() {
         return fullName;
@@ -72,5 +75,13 @@ public class RegisterForm {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

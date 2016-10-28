@@ -4,6 +4,7 @@ import com.example.data.form.RegisterForm;
 import com.example.data.model.Country;
 import com.example.data.model.CurrentUser;
 import com.example.data.model.User;
+import com.example.enumeration.Role;
 import com.example.exception.DatabaseException;
 import com.example.manager.UserManager;
 import com.example.repository.UserRepository;
@@ -35,6 +36,7 @@ public class UserMangerImpl implements UserManager, ApplicationListener<Authenti
             user.setCountry(form.getCountry());
             user.setDob(form.getDob());
             user.setEmail(form.getEmail());
+            user.setRole(form.getRole());
             user.setPassword(new BCryptPasswordEncoder().encode(form.getPassword()));
 
             return repository.save(user);

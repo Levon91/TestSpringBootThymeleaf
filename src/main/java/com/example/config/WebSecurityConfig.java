@@ -1,5 +1,6 @@
 package com.example.config;
 
+import com.example.enumeration.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,13 +24,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**", "/css/**", "/img/**", "/js/**").permitAll()
                 .antMatchers("/", "/signUp").anonymous().anyRequest().authenticated()
                 .and()
+                .authorizeRequests().antMatchers("/admin").hasAuthority(Role.ADMIN.name())
+                .and()
                 .formLogin().usernameParameter("email")
                 .defaultSuccessUrl("/home")
                 .loginPage("/signIn").permitAll()
                 .and().rememberMe()
                 .and().logout().permitAll()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/signOut"))
-                .logoutSuccessUrl("/signIn").permitAll();
+                .logoutSuccessUrl("/signIn").permitAll()
+
+        ;
     }
 
     @Override

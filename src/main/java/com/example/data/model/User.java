@@ -1,5 +1,7 @@
 package com.example.data.model;
 
+import com.example.enumeration.Role;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -26,10 +28,14 @@ public class User {
     @Column
     private String password;
 
+    @Column
+    private Role role;
+
     @Column(name = "last_login")
     private Date lastLogin;
 
     public User() {
+        role = Role.USER;
     }
 
     public long getId() {
@@ -78,6 +84,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public Date getLastLogin() {
